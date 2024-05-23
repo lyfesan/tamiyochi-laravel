@@ -1,0 +1,45 @@
+services:
+
+  mysql-database:
+    image: mysql
+    container_name: mysql-database
+    volumes:
+      - tamiyochi-db:/var/lib/mysql
+    restart: always
+    ports: 
+      - "3306:3306"
+    tty: true
+    environment:
+      MYSQL_DATABASE: pbkk
+      MYSQL_ROOT_PASSWORD: tamiyochi
+    #networks:
+    #  - tamiyochi-net
+
+  tamiyochi-laravel:
+    image: lyfesan/tamiyochi-laravel:latest
+    restart: always
+    container_name: app
+    ports:
+      - "9000:9000"
+    #networks:
+    #  - tamiyochi-net
+    depends_on:
+      - mysql-database
+  
+  webserver:
+    image: nginx
+    container_name: nginx-webserver
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf 
+    #networks:
+    #  - tamiyochi-net
+    depends_on:
+      - mysql-database
+      - tamiyochi-laravel
+
+volumes:
+  tamiyochi-db:
+    driver: local
