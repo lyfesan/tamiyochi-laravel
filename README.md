@@ -7,7 +7,7 @@ NRP : 5025221193
 ## Pengerjaan
   - [Persiapan Server](#persiapan-server)
   - [Kontainerisasi dengan Docker](#kontainerisasi-dengan-docker)
-  - [CI/CD dengan Github Actions]()
+  - [CI/CD dengan Github Actions](#cicd-dengan-github-actions)
 
 ## Persiapan Server
 Kita akan menggunakan virtual machine Azure dengan OS Debian. Contoh server yang telah berjalan yang dapat diakses di [sini](http://104.214.190.91).
