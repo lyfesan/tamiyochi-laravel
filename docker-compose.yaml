@@ -13,7 +13,7 @@ services:
       MYSQL_DATABASE: pbkk
       MYSQL_ROOT_PASSWORD: tamiyochi 
     healthcheck:
-      test: ["CMD", 'mysqladmin', 'ping', '-h', 'localhost', '-u', 'root', '-p$$MYSQL_ROOT_PASSWORD' ]
+      test: ["CMD", 'mysqladmin', 'ping', '-h', 'localhost', '-u', 'root', '-p tamiyochi' ]
       timeout: 10s
       retries: 5
 
@@ -36,7 +36,7 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./tamiyochi-nginx.conf:/etc/nginx/conf.d/default.conf
       - tamiyochi-php:/var/www/html
     depends_on:
       - mysql
