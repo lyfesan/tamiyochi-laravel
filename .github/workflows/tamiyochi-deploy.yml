@@ -32,7 +32,7 @@ jobs:
 
     steps:
       - name: Pull github code and redeploy docker containers
-        uses: appleboy/ssh-action
+        uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ vars.SERVER_IP }}
           username: ${{ secrets.SSH_USER }}
