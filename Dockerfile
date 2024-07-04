@@ -20,7 +20,7 @@ COPY tamiyochi-app/ /var/www/html/tamiyochi-laravel
 
 COPY setup-tamiyochi.sh /usr/local/bin
 
-RUN chmod -R 755 /var/www/html/ && chown -R www-data:www-data /var/www/html/tamiyochi-laravel
+RUN chmod -R 777 /var/www/html/ && chown -R www-data:www-data /var/www/html/tamiyochi-laravel
 
 WORKDIR /var/www/html/tamiyochi-laravel
 
